@@ -59,6 +59,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 // 	// fmt.Fprint(w, `welcome`)
 // }
 
+/*
 func new_member(w http.ResponseWriter, r *http.Request) {
 
 	name := r.FormValue("name")
@@ -68,4 +69,15 @@ func new_member(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(name, email, mobile)
 
 	fmt.Fprintf(w, `Received`) //response
+} */
+
+func new_member(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+
+	for key, val := range r.Form {
+		fmt.Println(key, val)
+	}
+
+	fmt.Fprintf(w, `ok`)
+
 }
