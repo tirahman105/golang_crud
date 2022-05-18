@@ -9,6 +9,7 @@ import (
 func main() {
 	fmt.Println(" Local server is running on port 8888")
 	http.HandleFunc("/", home)
+	http.HandleFunc("/new_member", new_member)
 	// http.HandleFunc("/add", add)
 	// http.HandleFunc("/dashboard", dashboard)
 	// http.HandleFunc("/mlist", mlist)
@@ -57,3 +58,14 @@ func home(w http.ResponseWriter, r *http.Request) {
 // 	ptmp.Execute(w, nil)
 // 	// fmt.Fprint(w, `welcome`)
 // }
+
+func new_member(w http.ResponseWriter, r *http.Request) {
+
+	name := r.FormValue("name")
+	email := r.FormValue("email")
+	mobile := r.FormValue("mobile")
+
+	fmt.Println(name, email, mobile)
+
+	fmt.Fprintf(w, `Received`) //response
+}
