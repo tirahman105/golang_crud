@@ -42,6 +42,8 @@ func main() {
 	http.ListenAndServe(":8888", nil)
 }
 
+// read
+
 func home(w http.ResponseWriter, r *http.Request) {
 	ptmp, err := template.ParseFiles("template/base.gohtml")
 	if err != nil {
